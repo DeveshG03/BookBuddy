@@ -2,11 +2,37 @@
 document.addEventListener('DOMContentLoaded',()=>{
  const link=document.createElement('link');link.rel='stylesheet';link.href='phase6.css';document.head.appendChild(link);
 
- // CHANGE: Make the Music Card photo circular and keep it clipped inside the frame.
+ // CHANGE: Keep the Music Card artwork compact, square, and non-circular.
  const musicPhotoStyle=document.createElement('style');
  musicPhotoStyle.textContent=`
-   .music-art{overflow:hidden;display:flex;align-items:center;justify-content:center}
-   .music-art img{width:100%!important;height:100%!important;aspect-ratio:1/1;object-fit:cover!important;object-position:center!important;border-radius:50%!important;display:block!important;transform:none!important}
+   .music-art{
+     width:180px!important;
+     height:180px!important;
+     flex:0 0 180px!important;
+     overflow:hidden;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     border-radius:0!important;
+   }
+   .music-art img{
+     width:100%!important;
+     height:100%!important;
+     aspect-ratio:1/1;
+     object-fit:cover!important;
+     object-position:center!important;
+     border-radius:0!important;
+     display:block!important;
+     transform:none!important;
+   }
+   @media(max-width:700px){
+     .music-art{
+       width:150px!important;
+       height:150px!important;
+       flex-basis:150px!important;
+       margin:0 auto;
+     }
+   }
  `;
  document.head.appendChild(musicPhotoStyle);
 
