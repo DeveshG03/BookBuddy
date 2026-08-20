@@ -1,4 +1,6 @@
+// CHANGE: Phase 5 is now a birthday-wishes-only final reveal.
 document.addEventListener('DOMContentLoaded', () => {
+    // CHANGE: Load the styling for the final birthday-wishes section.
     const css = document.createElement('link');
     css.rel = 'stylesheet';
     css.href = 'phase5.css';
@@ -15,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="p5-sky"></div>
 
         <div class="p5-title">
-            <div class="p5-kicker">phase 5 · the final garden</div>
+            <div class="p5-kicker">phase 5 · final birthday wishes</div>
             <h2>For my <em>Didi</em> ♡</h2>
             <p class="p5-sub">
-                Let the flowers carry the last part of this little surprise —
-                a birthday wish and a reminder that you will always have your brother.
+                May your birthday be filled with happiness, laughter, beautiful memories,
+                success and all the things that make you smile.
             </p>
         </div>
 
@@ -49,9 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="p5-final">
-            <span>AND ONE LAST THING</span>
+            <span>ONE LAST BIRTHDAY WISH</span>
             <h3>Happy Birthday, Manisha ♡</h3>
-            <b>With love, Your Brother</b>
+            <b>May this be your happiest year yet.</b>
             <br>
             <button class="p5-back" data-back-top>
                 BACK TO THE BEGINNING ↑
@@ -61,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     main.appendChild(section);
 
+    // CHANGE: Keep the final birthday section easy to revisit from the beginning.
     section.querySelector('[data-back-top]').onclick = () =>
         window.scrollTo({
             top: 0,
