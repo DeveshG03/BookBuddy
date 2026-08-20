@@ -1,6 +1,15 @@
 // CHANGE: Phase 6 supports the birthday-only experience.
 document.addEventListener('DOMContentLoaded',()=>{
  const link=document.createElement('link');link.rel='stylesheet';link.href='phase6.css';document.head.appendChild(link);
+
+ // CHANGE: Make the Music Card photo circular and keep it clipped inside the frame.
+ const musicPhotoStyle=document.createElement('style');
+ musicPhotoStyle.textContent=`
+   .music-art{overflow:hidden;display:flex;align-items:center;justify-content:center}
+   .music-art img{width:100%!important;height:100%!important;aspect-ratio:1/1;object-fit:cover!important;object-position:center!important;border-radius:50%!important;display:block!important;transform:none!important}
+ `;
+ document.head.appendChild(musicPhotoStyle);
+
  const progress=document.createElement('div');progress.className='page-progress';document.body.appendChild(progress);
  const sections=[...document.querySelectorAll('.reveal,.memories,.personal,.phase5')];
  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('is-visible')}),{threshold:.12});sections.forEach(s=>io.observe(s));
