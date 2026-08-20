@@ -119,11 +119,11 @@
                         <div class="letter-sign">Happy Birthday, Manisha ♡<br><b>Your Brother</b></div>
                     </article>
 
-                    <!-- CHANGE: Replaced the old location/map card with a birthday music card. -->
+                    <!-- CHANGE: Birthday music card replaces the old location/map card. -->
                     <article class="music-card">
                         <div class="music-art">
-                            <!-- CHANGE: Use the uploaded birthday photo in the music card. -->
-                            <img src="assets/photos/music-photo-2.jpg" alt="Manisha Didi birthday memory">
+                            <!-- CHANGE: Inline sizing keeps the uploaded photo inside the album-art frame. -->
+                            <img src="assets/photos/music-photo-2.jpg" alt="Manisha Didi birthday memory" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
                         </div>
                         <div class="music-info">
                             <div class="music-kicker">A SONG FOR DIDI</div>
@@ -136,6 +136,8 @@
                                     <div class="track-times"><span>0:00</span><span>0:00</span></div>
                                 </div>
                             </div>
+                            <!-- CHANGE: Display the exact uploaded audio file used by the player. -->
+                            <div class="music-file">AUDIO: <code>The Weeknd - Blinding Lights (Official Audio) - TheWeekndVEVO (youtube).mp3</code></div>
                         </div>
                     </article>
                 </div>
@@ -143,7 +145,8 @@
         </main>
     </div>
 
-    <audio id="birthdayAudio" preload="metadata"></audio>
+    <!-- CHANGE: Attach the uploaded MP3 directly to the audio element as well as phase6.js. -->
+    <audio id="birthdayAudio" preload="metadata" src="assets/music/The Weeknd - Blinding Lights (Official Audio) - TheWeekndVEVO (youtube).mp3"></audio>
 
     <!-- CHANGE: Removed the old missing script.js reference; phase5.js and phase6.js are the active scripts. -->
     <script src="phase5.js"></script>
