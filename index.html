@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A birthday surprise for Manisha Didi.">
     <title>For Manisha Didi ♡</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
     <div class="site">
         <main class="browser">
-            <!-- Birthday-only browser header -->
             <header class="browser-bar">
                 <div class="traffic"><span></span><span></span><span></span></div>
                 <div class="fake-tabs">
@@ -85,13 +84,12 @@
                     <!-- CHANGE: Birthday music card; location/map content has been removed. -->
                     <article class="music-card">
                         <div class="music-art">
-                            <!-- CHANGE: Keep the uploaded birthday image inside the album-art frame. -->
-                            <img src="assets/photos/music-photo-2.jpg" alt="Manisha Didi birthday memory" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+                            <!-- CHANGE: Uploaded photo is now displayed as a circular album-art image. -->
+                            <img src="assets/photos/music-photo-2.jpg" alt="Manisha Didi birthday memory" style="width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;object-position:center;display:block;border-radius:50%;">
                         </div>
                         <div class="music-info">
                             <div class="music-kicker">A SONG FOR DIDI</div><h3>Blinding Lights</h3><p>The Weeknd</p>
                             <div class="player"><button class="play" data-play aria-label="Play birthday music">▶</button><div class="track"><div class="track-line"></div><div class="track-times"><span>0:00</span><span>0:00</span></div></div></div>
-                            <!-- CHANGE: Use the renamed MP3 file. -->
                             <div class="music-file">AUDIO: <code>blinding-lights.mp3</code></div>
                         </div>
                     </article>
@@ -100,10 +98,7 @@
         </main>
     </div>
 
-    <!-- CHANGE: The renamed MP3 is now the single source used by the player. -->
     <audio id="birthdayAudio" preload="metadata" src="assets/music/blinding-lights.mp3"></audio>
-
-    <!-- CHANGE: Cache-bust phase scripts so GitHub Pages/mobile browsers do not keep the old audio filename. -->
     <script src="phase5.js?v=2"></script>
     <script src="phase6.js?v=3"></script>
 </body>
