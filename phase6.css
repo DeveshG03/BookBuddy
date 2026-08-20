@@ -1,8 +1,56 @@
-/* CHANGE: Birthday-only animations. Music artwork is a plain SQUARE image. */
-html{scroll-behavior:smooth}.paper{scroll-margin-top:62px}.reveal,.memories,.personal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}.reveal.is-visible,.memories.is-visible,.personal.is-visible{opacity:1;transform:none}.memory-card{cursor:pointer;transition:transform .35s ease,box-shadow .35s ease}.memory-card:hover{z-index:20}.photo-slot{overflow:hidden}.photo-slot img{width:100%;height:100%;object-fit:cover;display:block}.memory-card .photo-slot.has-photo span,.memory-card .photo-slot.has-photo small{display:none}.photo-lightbox{position:fixed;inset:0;background:#15110ed9;backdrop-filter:blur(8px);z-index:1000;display:grid;place-items:center;padding:22px;opacity:0;pointer-events:none;transition:opacity .3s ease}.photo-lightbox.open{opacity:1;pointer-events:auto}.lightbox-inner{max-width:900px;width:min(100%,900px);background:#f6ead7;padding:18px;box-shadow:0 30px 100px #000b;position:relative;transform:scale(.96);transition:transform .3s ease}.photo-lightbox.open .lightbox-inner{transform:scale(1)}.lightbox-image{width:100%;max-height:72vh;object-fit:contain;background:#ddd0bb;display:block}.lightbox-caption{padding:12px 6px 3px;font-size:22px}.lightbox-close{position:absolute;right:8px;top:8px;border:0;background:#f6ead7;border-radius:50%;width:38px;height:38px;font-size:25px;cursor:pointer;z-index:2}.music-card.is-playing{box-shadow:0 22px 60px #6f4d2d44}
-/* CHANGE: Force the album artwork to a true square. The image is cropped to fill the square, never shown as a portrait/passport rectangle. */
-.music-card .music-art{width:360px!important;height:360px!important;min-width:360px!important;max-width:360px!important;min-height:360px!important;max-height:360px!important;aspect-ratio:1/1!important;overflow:hidden!important;border-radius:0!important;transform:none!important;animation:none!important;flex:0 0 360px!important;}
-.music-card .music-art img{width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;max-width:none!important;max-height:none!important;aspect-ratio:1/1!important;object-fit:cover!important;object-position:center!important;display:block!important;border-radius:0!important;transform:none!important;animation:none!important;}
-.music-card.is-playing .music-art,.music-card.is-playing .music-art img{transform:none!important;animation:none!important}
-.music-card.is-playing .play{transform:scale(1.05)}.track-line{position:relative;overflow:hidden}.track-line:after{content:"";display:block;width:0;height:100%;background:#a85f58;transition:width .15s linear}.music-card.is-playing .track-line:after{width:100%;animation:progress 30s linear infinite}.music-file{word-break:break-word}.music-card[data-ready="true"] .music-file{color:#65775d}.scroll-hint{cursor:pointer}.phase5{opacity:0;transform:translateY(25px);transition:opacity 1s ease,transform 1s ease}.phase5.is-visible{opacity:1;transform:none}.p5-flower{transition:filter .4s ease}.p5-flower:hover{filter:brightness(1.12) drop-shadow(0 0 18px #f1bd7b66)}.p5-rakhi{transition:transform .4s ease,box-shadow .4s ease}.p5-rakhi:hover{transform:rotate(0) translateY(-4px);box-shadow:0 28px 70px #0009}.page-progress{position:fixed;top:0;left:0;height:3px;width:0;background:#d99b6d;z-index:2000;transition:width .05s linear}.cursor-heart{position:fixed;pointer-events:none;z-index:1500;font-size:16px;animation:heartPop .9s ease forwards}.reveal-opened .intro-copy{animation:surprisePulse .9s ease}.enter.is-used{opacity:.65}.scroll-hint span{display:inline-block;animation:downBob 1.3s ease-in-out infinite}@keyframes progress{from{width:0}to{width:100%}}@keyframes heartPop{0%{opacity:0;transform:translate(-50%,-20%) scale(.5)}25%{opacity:1}100%{opacity:0;transform:translate(-50%,-100px) scale(1.4)}}@keyframes surprisePulse{0%{transform:scale(.98)}45%{transform:scale(1.02)}100%{transform:scale(1)}}@keyframes downBob{50%{transform:translateY(5px)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.memories,.personal,.phase5{transition:none}.p5-flower,.p5-petal,.music-card .music-art,.music-card .music-art img{animation:none!important}.scroll-hint span{animation:none}.cursor-heart{display:none}}
-@media(max-width:700px){.music-card .music-art{width:min(82vw,360px)!important;height:min(82vw,360px)!important;min-width:min(82vw,360px)!important;max-width:min(82vw,360px)!important;min-height:min(82vw,360px)!important;max-height:min(82vw,360px)!important;flex-basis:min(82vw,360px)!important}.music-card .music-art img{width:100%!important;height:100%!important}}
+/* CHANGE: Birthday-only animations and Spotify-style music player. */
+html{scroll-behavior:smooth}
+.paper{scroll-margin-top:62px}
+.reveal,.memories,.personal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
+.reveal.is-visible,.memories.is-visible,.personal.is-visible{opacity:1;transform:none}
+.memory-card{cursor:pointer;transition:transform .35s ease,box-shadow .35s ease}
+.memory-card:hover{z-index:20}
+.photo-slot{overflow:hidden}
+.photo-slot img{width:100%;height:100%;object-fit:cover;display:block}
+.memory-card .photo-slot.has-photo span,.memory-card .photo-slot.has-photo small{display:none}
+.photo-lightbox{position:fixed;inset:0;background:#15110ed9;backdrop-filter:blur(8px);z-index:1000;display:grid;place-items:center;padding:22px;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.photo-lightbox.open{opacity:1;pointer-events:auto}
+.lightbox-inner{max-width:900px;width:min(100%,900px);background:#f6ead7;padding:18px;box-shadow:0 30px 100px #000b;position:relative;transform:scale(.96);transition:transform .3s ease}
+.photo-lightbox.open .lightbox-inner{transform:scale(1)}
+.lightbox-image{width:100%;max-height:72vh;object-fit:contain;background:#ddd0bb;display:block}
+.lightbox-caption{padding:12px 6px 3px;font-size:22px}
+.lightbox-close{position:absolute;right:8px;top:8px;border:0;background:#f6ead7;border-radius:50%;width:38px;height:38px;font-size:25px;cursor:pointer;z-index:2}
+
+/* CHANGE: Spotify-style music card. Album art is compact and NEVER overlaps the song information. */
+.personal-grid .music-card{grid-column:1 / -1!important;width:100%!important;max-width:900px!important;box-sizing:border-box!important;margin:10px auto 0!important;padding:20px!important;display:grid!important;grid-template-columns:220px minmax(0,1fr)!important;gap:24px!important;align-items:center!important;overflow:hidden!important;border-radius:16px!important}
+
+/* CHANGE: 220x220 true-square album artwork. No circle, rotation, or animation. */
+.music-card .music-art{width:220px!important;height:220px!important;min-width:220px!important;max-width:220px!important;min-height:220px!important;max-height:220px!important;aspect-ratio:1 / 1!important;flex:0 0 220px!important;overflow:hidden!important;border-radius:0!important;transform:none!important;animation:none!important;margin:0!important;box-sizing:border-box!important}
+.music-card .music-art img{width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;max-width:none!important;max-height:none!important;aspect-ratio:1 / 1!important;object-fit:cover!important;object-position:center!important;display:block!important;border-radius:0!important;transform:none!important;animation:none!important}
+
+/* CHANGE: Keep all text and controls inside the right-hand column. */
+.music-card .music-info{min-width:0!important;width:100%!important;max-width:100%!important;box-sizing:border-box!important;overflow:hidden!important}
+.music-card .music-info h3{overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+.music-card .music-info>p{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+.music-card .player{min-width:0!important;width:100%!important;box-sizing:border-box!important}
+.music-card .track{min-width:0!important;width:100%!important}
+.music-card .track-line{position:relative;overflow:hidden}
+.music-card .track-line:after{content:"";display:block;width:var(--p,0%);height:100%;background:#a85f58;transition:width .15s linear}
+.music-card.is-playing .play{transform:scale(1.05)}
+.music-card.is-playing{box-shadow:0 22px 60px #6f4d2d44}
+.music-file{word-break:break-word}
+.music-card[data-ready="true"] .music-file{color:#65775d}
+.scroll-hint{cursor:pointer}
+.phase5{opacity:0;transform:translateY(25px);transition:opacity 1s ease,transform 1s ease}
+.phase5.is-visible{opacity:1;transform:none}
+.p5-flower{transition:filter .4s ease}
+.p5-flower:hover{filter:brightness(1.12) drop-shadow(0 0 18px #f1bd7b66)}
+.p5-rakhi{transition:transform .4s ease,box-shadow .4s ease}
+.p5-rakhi:hover{transform:rotate(0) translateY(-4px);box-shadow:0 28px 70px #0009}
+.page-progress{position:fixed;top:0;left:0;height:3px;width:0;background:#d99b6d;z-index:2000;transition:width .05s linear}
+.cursor-heart{position:fixed;pointer-events:none;z-index:1500;font-size:16px;animation:heartPop .9s ease forwards}
+.reveal-opened .intro-copy{animation:surprisePulse .9s ease}
+.enter.is-used{opacity:.65}
+.scroll-hint span{display:inline-block;animation:downBob 1.3s ease-in-out infinite}
+@keyframes heartPop{0%{opacity:0;transform:translate(-50%,-20%) scale(.5)}25%{opacity:1}100%{opacity:0;transform:translate(-50%,-100px) scale(1.4)}}
+@keyframes surprisePulse{0%{transform:scale(.98)}45%{transform:scale(1.02)}100%{transform:scale(1)}}
+@keyframes downBob{50%{transform:translateY(5px)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.memories,.personal,.phase5{transition:none}.p5-flower,.p5-petal,.music-card .music-art,.music-card .music-art img{animation:none!important}.scroll-hint span{animation:none}.cursor-heart{display:none}}
+
+/* CHANGE: Mobile layout stacks the same square album art above the controls without overlap. */
+@media(max-width:700px){.personal-grid .music-card{grid-template-columns:1fr!important;gap:16px!important;padding:16px!important}.music-card .music-art{width:180px!important;height:180px!important;min-width:180px!important;max-width:180px!important;min-height:180px!important;max-height:180px!important;flex-basis:180px!important;margin:0 auto!important}.music-card .music-info{width:100%!important}.music-card .music-info h3{font-size:32px!important}}
